@@ -1,0 +1,136 @@
+body {
+	> .wp-site-blocks {
+		> .entry-content.wp-block-post-content:has(> .wp-block-ud-hero-video-block:first-child) {
+			margin-top: 0;
+		}
+	}
+}
+
+.wp-block-ud-hero-video-block {
+	position: relative;
+	overflow: hidden;
+	min-height: 100vh;
+	background: #000;
+	color: #fff;
+
+	.ud-hero-video-block__video,
+	.ud-hero-video-block__poster {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 1;
+		width: 100%;
+		height: 100%;
+	}
+
+	.ud-hero-video-block__video {
+		object-fit: cover;
+	}
+
+	.ud-hero-video-block__poster {
+		display: block;
+		background-position: center;
+		background-repeat: no-repeat;
+		background-size: cover;
+	}
+
+	.ud-hero-video-block__shade {
+		position: absolute;
+		top: 0;
+		left: 0;
+		z-index: 2;
+		width: 100%;
+		height: 100%;
+		background: rgba(0, 0, 0, 0.35);
+		opacity: 0;
+		animation: udHeroShadeFade 0.8s ease-out 0.2s forwards;
+	}
+
+	.ud-hero-video-block__content {
+		position: relative;
+		z-index: 3;
+		display: flex;
+		align-items: flex-end;
+		min-height: 100vh;
+		padding: clamp(24px, 4vw, 60px);
+	}
+
+	.ud-hero-video-block__text-box {
+	    width: fit-content;
+max-width: min(520px, 90vw);
+		padding: clamp(20px, 2.5vw, 32px);
+		border-radius: 24px;
+		background: rgba(0, 0, 0, 0.28);
+		backdrop-filter: blur(6px);
+		opacity: 0;
+		transform: translateY(32px);
+		animation: udHeroTextReveal 0.9s ease-out 0.45s forwards;
+	}
+
+	.ud-hero-video-block__eyebrow {
+		margin: 0 0 12px;
+		font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+		letter-spacing: 0.08em;
+		text-transform: uppercase;
+		opacity: 0;
+		transform: translateY(12px);
+		animation: udHeroTextInnerReveal 0.7s ease-out 0.7s forwards;
+	}
+
+	.ud-hero-video-block__headline {
+		margin: 0;
+		font-size: var(--wp--preset--font-size--hero, clamp(2rem, 4vw, 3.3rem));
+		font-weight: 100;
+		line-height: 1.05;
+		font-optical-sizing: auto;
+		font-feature-settings: "kern" 1;
+		font-variation-settings:
+			"wght" 100,
+			"opsz" 14;
+		opacity: 0;
+		transform: translateY(12px);
+		animation: udHeroTextInnerReveal 0.8s ease-out 0.85s forwards;
+	}
+
+	@media (max-width: 767px) {
+		&[data-show-video-on-mobile="false"] {
+			.ud-hero-video-block__video {
+				display: none;
+			}
+		}
+	}
+}
+
+@keyframes udHeroShadeFade {
+	from {
+		opacity: 0;
+	}
+
+	to {
+		opacity: 1;
+	}
+}
+
+@keyframes udHeroTextReveal {
+	from {
+		opacity: 0;
+		transform: translateY(32px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
+
+@keyframes udHeroTextInnerReveal {
+	from {
+		opacity: 0;
+		transform: translateY(12px);
+	}
+
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}

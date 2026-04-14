@@ -1,0 +1,57 @@
+{
+    "$schema": "https://schemas.wp.org/trunk/block.json",
+    "apiVersion": 3,
+    "name": "ud/hero-video-block",
+    "version": "1.0.0",
+    "title": "Hero Video",
+    "category": "ud-blocks",
+    "icon": "format-video",
+    "description": "Hero-Bereich mit Hintergrundvideo, Posterbild und Overlay-Text.",
+    "textdomain": "ud-hero-video-block-ud",
+    "supports": {
+        "html": false,
+        "anchor": true,
+        "align": [
+            "wide",
+            "full"
+        ]
+    },
+    "attributes": {
+        "eyebrow": {
+            "type": "string",
+            "default": "The 5 Elements"
+        },
+        "headline": {
+            "type": "string",
+            "default": "Eine private Villa oberhalb des Vierwaldstättersees"
+        },
+        "videoId": {
+            "type": "number",
+            "default": 0
+        },
+        "videoUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "posterId": {
+            "type": "number",
+            "default": 0
+        },
+        "posterUrl": {
+            "type": "string",
+            "default": ""
+        },
+        "showVideoOnMobile": {
+            "type": "boolean",
+            "default": true
+        },
+        "loop": {
+            "type": "boolean",
+            "default": true
+        }
+    },
+    "editorScript": "file:./build/editor-script.js",
+    "editorStyle": "file:./build/editor-style.css",
+    "script": "file:./build/frontend-script.js",
+    "style": "file:./build/frontend-style.css"
+}

@@ -1,0 +1,130 @@
+/*!**********************************************************************************************************************************************************************************************************************************************!*\
+  !*** css ./node_modules/css-loader/dist/cjs.js??ruleSet[1].rules[4].use[1]!./node_modules/postcss-loader/dist/cjs.js??ruleSet[1].rules[4].use[2]!./node_modules/sass-loader/dist/cjs.js??ruleSet[1].rules[4].use[3]!./src/css/frontend.scss ***!
+  \**********************************************************************************************************************************************************************************************************************************************/
+body > .wp-site-blocks > .entry-content.wp-block-post-content:has(> .wp-block-ud-hero-video-block:first-child) {
+  margin-top: 0;
+}
+
+.wp-block-ud-hero-video-block {
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
+  background: #000;
+  color: #fff;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__video,
+.wp-block-ud-hero-video-block .ud-hero-video-block__poster {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 1;
+  width: 100%;
+  height: 100%;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__video {
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__poster {
+  display: block;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__shade {
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.35);
+  opacity: 0;
+  animation: udHeroShadeFade 0.8s ease-out 0.2s forwards;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__content {
+  position: relative;
+  z-index: 3;
+  display: flex;
+  align-items: flex-end;
+  min-height: 100vh;
+  padding: clamp(24px, 4vw, 60px);
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__text-box {
+  width: -moz-fit-content;
+  width: fit-content;
+  max-width: min(520px, 90vw);
+  padding: clamp(20px, 2.5vw, 32px);
+  border-radius: 24px;
+  background: rgba(0, 0, 0, 0.28);
+  backdrop-filter: blur(6px);
+  opacity: 0;
+  transform: translateY(32px);
+  animation: udHeroTextReveal 0.9s ease-out 0.45s forwards;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__eyebrow {
+  margin: 0 0 12px;
+  font-size: clamp(0.9rem, 1.5vw, 1.2rem);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: udHeroTextInnerReveal 0.7s ease-out 0.7s forwards;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__headline {
+  margin: 0;
+  font-size: var(--wp--preset--font-size--hero, clamp(2rem, 4vw, 3.3rem));
+  font-weight: 100;
+  line-height: 1.05;
+  font-optical-sizing: auto;
+  font-feature-settings: "kern" 1;
+  font-variation-settings: "wght" 100, "opsz" 14;
+  opacity: 0;
+  transform: translateY(12px);
+  animation: udHeroTextInnerReveal 0.8s ease-out 0.85s forwards;
+}
+
+@media (max-width: 767px) {
+  .wp-block-ud-hero-video-block[data-show-video-on-mobile=false] .ud-hero-video-block__video {
+    display: none;
+  }
+}
+
+@keyframes udHeroShadeFade {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes udHeroTextReveal {
+  from {
+    opacity: 0;
+    transform: translateY(32px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes udHeroTextInnerReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
