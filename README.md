@@ -6,11 +6,11 @@ Ein Hero-Block mit Hintergrundvideo, Posterbild und Overlay-Text für den Einsat
 
 ### Frontend
 ![Hero Video Block im Editor](./assets/ud-hero-video-block-frontend.png)
-Screenshot der fertigen Ausgabe im Frontend mit Video, Posterbild und Text-Overlay.
+_Screenshot der fertigen Ausgabe im Frontend mit Video, Posterbild und Text-Overlay._
 
 ### Editor
 ![Hero Video Block im Editor](./assets/ud-hero-video-block-editor.png)
-Screenshot des Blocks im Editor. Eyebrow und Titel werden direkt im Block bearbeitet.
+_Screenshot des Blocks im Editor. Eyebrow und Titel werden direkt im Block bearbeitet._
 
 
 ## Kontext
