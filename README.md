@@ -4,14 +4,14 @@ Ein Hero-Block mit Hintergrundvideo, Posterbild und Overlay-Text für den Einsat
 
 ## Screenshots
 
-
-### Editor
-![Hero Video Block im Editor](./assets/ud-hero-video-block-frontend.png)
-Screenshot des Blocks im Editor mit Medien-Auswahl, Textfeldern und Optionen.
-
 ### Frontend
 ![Hero Video Block im Editor](./assets/ud-hero-video-block-frontend.png)
 Screenshot der fertigen Ausgabe im Frontend mit Video, Posterbild und Text-Overlay.
+
+### Editor
+![Hero Video Block im Editor](./assets/ud-hero-video-block-editor.png)
+Screenshot des Blocks im Editor mit Medien-Auswahl, Textfeldern und Optionen.
+
 
 ## Kontext
 
@@ -51,8 +51,8 @@ Das Video wird ohne Controls ausgegeben und ist auf eine ruhige Hero-Darstellung
 
 ## Hinweise
 
-Der Block verwendet serverseitiges Rendering über `render_callback`.  
-Zusätzliche Frontend-Logik ist aktuell nicht erforderlich.  
+Der Block verwendet serverseitiges Rendering über `render_callback`.
+Zusätzliche Frontend-Logik ist aktuell nicht erforderlich.
 Die visuelle Ausgestaltung erfolgt primär über CSS.
 
 ## Autor
