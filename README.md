@@ -3,14 +3,14 @@
 Ein Hero-Block mit Hintergrundvideo, Posterbild und Overlay-Text für den Einsatz im Header- oder Einstiegsbereich.
 
 ## Screenshots
-![Hero Video Block im Editor](./assets/ud-hero-video-block-frontend.png)
+
 
 ### Editor
-
+![Hero Video Block im Editor](./assets/ud-hero-video-block-frontend.png)
 Screenshot des Blocks im Editor mit Medien-Auswahl, Textfeldern und Optionen.
 
 ### Frontend
-
+![Hero Video Block im Editor](./assets/ud-hero-video-block-frontend.png)
 Screenshot der fertigen Ausgabe im Frontend mit Video, Posterbild und Text-Overlay.
 
 ## Kontext
@@ -26,9 +26,9 @@ Zentrale Logik:
 - Videoquelle über `videoId` oder `videoUrl`
 - Posterbild über `posterId` oder `posterUrl`
 - Optionales Looping des Videos
-- Steuerung, ob das Video auch mobil angezeigt wird
+- Optional kann das Video auf mobilen Geräten vollständig deaktiviert werden
+  → In diesem Fall wird nur das Posterbild ausgegeben
 - Ausgabe von Eyebrow und Headline nur wenn befüllt
-- Posterbild bleibt als visuelle Absicherung und Fallback erhalten
 
 ## Editor
 
