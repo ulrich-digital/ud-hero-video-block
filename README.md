@@ -10,8 +10,7 @@ Screenshot der fertigen Ausgabe im Frontend mit Video, Posterbild und Text-Overl
 
 ### Editor
 ![Hero Video Block im Editor](./assets/ud-hero-video-block-editor.png)
-Screenshot des Blocks im Editor mit Medien-Auswahl, Textfeldern und Optionen. Text kann direkt im Block bearbeitet werden (Eyebrow & Titel).
-
+Screenshot des Blocks im Editor. Eyebrow und Titel werden direkt im Block bearbeitet.
 
 
 ## Kontext
