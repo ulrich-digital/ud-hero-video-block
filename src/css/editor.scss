@@ -1,30 +1,79 @@
 @use 'frontend';
 
 .wp-block-ud-hero-video-block.ud-hero-video-block--editor {
-  min-height: 50vh;
-max-height: 50vh;
-.ud-hero-video-block__content{
-  min-height: 50vh;
-max-height: 50vh;
-box-sizing: border-box;
-}
+	min-height: 50vh;
+	max-height: 50vh;
+
+	.ud-hero-video-block__content {
+		box-sizing: border-box;
+		min-height: 50vh;
+		max-height: 50vh;
+	}
 }
 
+.ud-hero-video-block__poster-control {
+	position: relative;
+	overflow: hidden;
+	border-radius: 8px;
 
-.wp-block-ud-hero-video-block .ud-hero-video-block__content{
-
+	img {
+		display: block;
+		width: 100%;
+		aspect-ratio: 16 / 9;
+		object-fit: cover;
+	}
 }
+
+.ud-hero-video-block__edit-button.components-button {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 44px;
+	min-width: 44px;
+	height: 44px;
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	background: rgba(255, 255, 255, 0.88);
+	box-shadow: none;
+	color: #1e1e1e;
+	backdrop-filter: blur(4px);
+
+	&:hover,
+	&:focus {
+		background: #fff;
+		color: #1e1e1e;
+	}
+
+	svg {
+		width: 24px;
+		height: 24px;
+	}
+}
+
+.ud-hero-video-block__poster-control .ud-hero-video-block__edit-button {
+	position: absolute;
+	right: 10px;
+	bottom: 10px;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__video-edit {
+	position: absolute;
+	right: 16px;
+	bottom: 16px;
+	z-index: 4;
+}
+
 .wp-block-ud-hero-video-block .ud-hero-video-block__placeholder {
-  position: absolute;
-  top: 0;
-  left: 0;
-  z-index: 1;
+	position: absolute;
+	inset: 0;
+	z-index: 1;
   display: flex;
   align-items: center;
   justify-content: center;
   width: 100%;
   height: 100%;
   padding: 24px;
-  background: #1f1f1f;
-  color: #fff;
+	background: #1f1f1f;
+	color: #fff;
 }

@@ -135,15 +135,67 @@ body > .wp-site-blocks > .entry-content.wp-block-post-content:has(> .wp-block-ud
 }
 
 .wp-block-ud-hero-video-block.ud-hero-video-block--editor .ud-hero-video-block__content {
+  box-sizing: border-box;
   min-height: 50vh;
   max-height: 50vh;
-  box-sizing: border-box;
+}
+
+.ud-hero-video-block__poster-control {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.ud-hero-video-block__poster-control img {
+  display: block;
+  width: 100%;
+  aspect-ratio: 16/9;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.ud-hero-video-block__edit-button.components-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  min-width: 44px;
+  height: 44px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.88);
+  box-shadow: none;
+  color: #1e1e1e;
+  backdrop-filter: blur(4px);
+}
+
+.ud-hero-video-block__edit-button.components-button:hover, .ud-hero-video-block__edit-button.components-button:focus {
+  background: #fff;
+  color: #1e1e1e;
+}
+
+.ud-hero-video-block__edit-button.components-button svg {
+  width: 24px;
+  height: 24px;
+}
+
+.ud-hero-video-block__poster-control .ud-hero-video-block__edit-button {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+}
+
+.wp-block-ud-hero-video-block .ud-hero-video-block__video-edit {
+  position: absolute;
+  right: 16px;
+  bottom: 16px;
+  z-index: 4;
 }
 
 .wp-block-ud-hero-video-block .ud-hero-video-block__placeholder {
   position: absolute;
-  top: 0;
-  left: 0;
+  inset: 0;
   z-index: 1;
   display: flex;
   align-items: center;

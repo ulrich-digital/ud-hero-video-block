@@ -1,59 +1,43 @@
-# UD Block: Hero Video
+# UD Block: Hero mit Video
 
-Ein Hero-Block mit Hintergrundvideo, Posterbild und Overlay-Text für den Einsatz im Header- oder Einstiegsbereich.
+Ein individueller WordPress-Block für responsive Hero-Bereiche mit Hintergrundvideo, Posterbild und direkt editierbarem Text.
 
 ## Screenshots
 
-### Frontend
-![Hero Video Block im Editor](./assets/ud-hero-video-block-frontend.png)
-_Screenshot der fertigen Ausgabe im Frontend mit Video, Posterbild und Text-Overlay._
-
 ### Editor
-![Hero Video Block im Editor](./assets/ud-hero-video-block-editor.png)
-_Screenshot des Blocks im Editor. Eyebrow und Titel werden direkt im Block bearbeitet._
 
+![Hero mit Video im WordPress-Editor mit editierbarem Video, Posterbild und Wiedergabeoptionen](./assets/hero-videos-in-wordpress-mit-posterbild-und-mobiler-alternative-steuern-editor.webp)
 
-## Kontext
+_Das Hintergrundvideo und die Texte werden direkt im Hero-Bereich bearbeitet. Das Posterbild und die Wiedergabeoptionen stehen im Inspector bereit._
 
-Der Block ist für den Einsatz im Block-Editor bzw. im FSE-Kontext gedacht und dient als visueller Einstieg einer Seite, Startseite oder eines Templates.
+## Einsatz
 
-## Logik
+Der Block strukturiert den visuellen Einstieg einer Seite, Startseite oder eines Templates. Die Redaktion pflegt Video, Posterbild, Eyebrow, Überschrift und Wiedergabe direkt im WordPress-Editor.
 
-Die Ausgabe erfolgt serverseitig über `render.php`.
+## Funktionen
 
-Zentrale Logik:
+- Hintergrundvideo aus der WordPress-Mediathek
+- Posterbild als Vorschaubild und mobile Alternative
+- Direkt bearbeitbare Eyebrow und Überschrift
+- Wiederholte Videowiedergabe als Option
+- Steuerbare Videowiedergabe auf Mobilgeräten
+- Responsive Ausgabe mit breiter und voller Ausrichtung
+- Serverseitiges Rendering über `render.php`
 
-- Videoquelle über `videoId` oder `videoUrl`
-- Posterbild über `posterId` oder `posterUrl`
-- Optionales Looping des Videos
-- Optional kann das Video auf mobilen Geräten vollständig deaktiviert werden
-  → In diesem Fall wird nur das Posterbild ausgegeben
-- Ausgabe von Eyebrow und Headline nur wenn befüllt
+## Bedienung im Editor
 
-## Editor
+Das Hintergrundvideo wird über den Stift unten rechts im Hero-Bereich gewählt oder bearbeitet. Das Posterbild erscheint als Vorschau im Inspector und wird dort ebenfalls über einen Stift bearbeitet. Das einheitliche Symbol beschreibt jeweils die Aktion; seine Position macht das zugehörige Medium eindeutig.
 
-Im Editor können folgende Inhalte bzw. Optionen gepflegt werden:
+Im Panel **Wiedergabe** stehen zwei Optionen zur Verfügung:
 
-- Eyebrow
-- Headline
-- Video
-- Posterbild
-- Loop aktivieren
-- Video auf mobilen Geräten anzeigen
+- **Video wiederholen**
+- **Video auf Mobilgeräten abspielen**
 
-Die Medien lassen sich sowohl über die Mediathek als auch über URL-Felder steuern.
+Eyebrow und Überschrift lassen sich unmittelbar im Inhalt bearbeiten.
 
-## Frontend
+## Ausgabe im Frontend
 
-Im Frontend wird ein Hero-Bereich mit Video, Posterbild, Overlay und Textbox ausgegeben.
-
-Das Video wird ohne Controls ausgegeben und ist auf eine ruhige Hero-Darstellung ausgelegt.
-
-## Hinweise
-
-Der Block verwendet serverseitiges Rendering über `render_callback`.
-Zusätzliche Frontend-Logik ist aktuell nicht erforderlich.
-Die visuelle Ausgestaltung erfolgt primär über CSS.
+Die Ausgabe erfolgt serverseitig. Das Video wird automatisch, stumm und inline wiedergegeben. Das Posterbild dient als Startbild und übernimmt auf Mobilgeräten die Darstellung, wenn die mobile Videowiedergabe deaktiviert ist. Die visuelle Ausgestaltung erfolgt über das Stylesheet des Blocks und kann im Theme weitergeführt werden.
 
 ## Autor
 
@@ -62,4 +46,5 @@ Die visuelle Ausgestaltung erfolgt primär über CSS.
 ## Lizenz
 
 GPL v2 or later
+
 [https://www.gnu.org/licenses/gpl-2.0.html](https://www.gnu.org/licenses/gpl-2.0.html)

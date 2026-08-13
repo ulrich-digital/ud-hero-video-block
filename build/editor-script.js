@@ -18,8 +18,10 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1___default = /*#__PURE__*/__webpack_require__.n(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__);
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! @wordpress/components */ "@wordpress/components");
 /* harmony import */ var _wordpress_components__WEBPACK_IMPORTED_MODULE_2___default = /*#__PURE__*/__webpack_require__.n(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__);
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
-/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__);
+/* harmony import */ var _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! @wordpress/icons */ "./node_modules/@wordpress/icons/build-module/library/pencil.mjs");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4___default = /*#__PURE__*/__webpack_require__.n(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__);
+
 
 
 
@@ -35,91 +37,95 @@ function Edit({
     videoUrl,
     posterId,
     posterUrl,
-    showVideoOnMobile
+    showVideoOnMobile,
+    loop
   } = attributes;
   const blockProps = (0,_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.useBlockProps)({
-    className: "ud-hero-video-block ud-hero-video-block--editor",
-    "data-show-video-on-mobile": showVideoOnMobile ? "true" : "false"
+    className: 'ud-hero-video-block ud-hero-video-block--editor',
+    'data-show-video-on-mobile': showVideoOnMobile ? 'true' : 'false'
   });
   const onSelectVideo = media => {
     setAttributes({
       videoId: media?.id || 0,
-      videoUrl: media?.url || ""
+      videoUrl: media?.url || ''
     });
   };
   const onSelectPoster = media => {
     setAttributes({
       posterId: media?.id || 0,
-      posterUrl: media?.url || ""
+      posterUrl: media?.url || ''
     });
   };
-  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.Fragment, {
-    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
-      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Medien", "ud-hero-video-block-ud"),
+  let mediaPreview;
+  if (videoUrl) {
+    mediaPreview = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("video", {
+      className: "ud-hero-video-block__video",
+      autoPlay: true,
+      muted: true,
+      loop: loop,
+      playsInline: true,
+      preload: "metadata",
+      poster: posterUrl || undefined,
+      src: videoUrl
+    });
+  } else if (posterUrl) {
+    mediaPreview = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "ud-hero-video-block__poster",
+      style: {
+        backgroundImage: `url(${posterUrl})`
+      }
+    });
+  } else {
+    mediaPreview = /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
+      className: "ud-hero-video-block__placeholder",
+      children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Video oder Posterbild auswählen', 'ud-hero-video-block-ud')
+    });
+  }
+  const videoEditLabel = videoUrl ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Hintergrundvideo bearbeiten', 'ud-hero-video-block-ud') : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Hintergrundvideo wählen', 'ud-hero-video-block-ud');
+  return /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.Fragment, {
+    children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.InspectorControls, {
+      children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Posterbild', 'ud-hero-video-block-ud'),
         initialOpen: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
-            onSelect: onSelectVideo,
-            allowedTypes: ["video"],
-            value: videoId,
-            render: ({
-              open
-            }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
-              variant: "secondary",
-              onClick: open,
-              __next40pxDefaultSize: true,
-              __nextHasNoMarginBottom: true,
-              children: videoUrl ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Video ersetzen", "ud-hero-video-block-ud") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Video wählen", "ud-hero-video-block-ud")
-            })
-          })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Video-URL", "ud-hero-video-block-ud"),
-          value: videoUrl,
-          onChange: value => setAttributes({
-            videoId: 0,
-            videoUrl: value
-          }),
-          __next40pxDefaultSize: true,
-          __nextHasNoMarginBottom: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
-          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
+          children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
             onSelect: onSelectPoster,
-            allowedTypes: ["image"],
+            allowedTypes: ['image'],
             value: posterId,
             render: ({
               open
-            }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+            }) => posterUrl ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
+              className: "ud-hero-video-block__poster-control",
+              children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("img", {
+                src: posterUrl,
+                alt: ""
+              }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+                className: "ud-hero-video-block__edit-button",
+                icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"],
+                label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Posterbild bearbeiten', 'ud-hero-video-block-ud'),
+                onClick: open
+              })]
+            }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
               variant: "secondary",
               onClick: open,
               __next40pxDefaultSize: true,
-              __nextHasNoMarginBottom: true,
-              children: posterUrl ? (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Posterbild ersetzen", "ud-hero-video-block-ud") : (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Posterbild wählen", "ud-hero-video-block-ud")
+              children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Posterbild wählen', 'ud-hero-video-block-ud')
             })
           })
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.TextControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Posterbild-URL", "ud-hero-video-block-ud"),
-          value: posterUrl,
-          onChange: value => setAttributes({
-            posterId: 0,
-            posterUrl: value
-          }),
-          __next40pxDefaultSize: true,
-          __nextHasNoMarginBottom: true
-        })]
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
-        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Optionen", "ud-hero-video-block-ud"),
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.PanelBody, {
+        title: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Wiedergabe', 'ud-hero-video-block-ud'),
         initialOpen: true,
-        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-          label: "Video loopen",
-          checked: attributes.loop,
+        children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Video wiederholen', 'ud-hero-video-block-ud'),
+          checked: loop,
           onChange: value => setAttributes({
             loop: value
           }),
           __next40pxDefaultSize: true,
           __nextHasNoMarginBottom: true
-        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
-          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Video auch mobil anzeigen", "ud-hero-video-block-ud"),
+        }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.ToggleControl, {
+          label: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Video auf Mobilgeräten abspielen', 'ud-hero-video-block-ud'),
           checked: showVideoOnMobile,
           onChange: value => setAttributes({
             showVideoOnMobile: value
@@ -128,47 +134,44 @@ function Edit({
           __nextHasNoMarginBottom: true
         })]
       })]
-    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("section", {
+    }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("section", {
       ...blockProps,
-      children: [videoUrl ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("video", {
-        className: "ud-hero-video-block__video",
-        autoPlay: true,
-        muted: true,
-        loop: true,
-        playsInline: true,
-        preload: "metadata",
-        poster: posterUrl || undefined,
-        src: videoUrl
-      }) : posterUrl ? /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "ud-hero-video-block__poster",
-        style: {
-          backgroundImage: `url(${posterUrl})`
-        }
-      }) : /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
-        className: "ud-hero-video-block__placeholder",
-        children: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Video oder Posterbild auswählen", "ud-hero-video-block-ud")
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      children: [mediaPreview, /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "ud-hero-video-block__shade"
-      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)("div", {
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUploadCheck, {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.MediaUpload, {
+          onSelect: onSelectVideo,
+          allowedTypes: ['video'],
+          value: videoId,
+          render: ({
+            open
+          }) => /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_components__WEBPACK_IMPORTED_MODULE_2__.Button, {
+            className: "ud-hero-video-block__edit-button ud-hero-video-block__video-edit",
+            icon: _wordpress_icons__WEBPACK_IMPORTED_MODULE_3__["default"],
+            label: videoEditLabel,
+            onClick: open
+          })
+        })
+      }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)("div", {
         className: "ud-hero-video-block__content",
-        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsxs)("div", {
+        children: /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsxs)("div", {
           className: "ud-hero-video-block__text-box",
-          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+          children: [/*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
             tagName: "p",
             className: "ud-hero-video-block__eyebrow",
             value: eyebrow,
             onChange: value => setAttributes({
               eyebrow: value
             }),
-            placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Eyebrow hinzufügen", "ud-hero-video-block-ud")
-          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_3__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
+            placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Eyebrow hinzufügen', 'ud-hero-video-block-ud')
+          }), /*#__PURE__*/(0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_4__.jsx)(_wordpress_block_editor__WEBPACK_IMPORTED_MODULE_1__.RichText, {
             tagName: "h1",
             className: "ud-hero-video-block__headline",
             value: headline,
             onChange: value => setAttributes({
               headline: value
             }),
-            placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)("Headline hinzufügen", "ud-hero-video-block-ud")
+            placeholder: (0,_wordpress_i18n__WEBPACK_IMPORTED_MODULE_0__.__)('Headline hinzufügen', 'ud-hero-video-block-ud')
           })]
         })
       })]
@@ -244,13 +247,45 @@ module.exports = window["wp"]["i18n"];
 
 /***/ },
 
+/***/ "@wordpress/primitives"
+/*!************************************!*\
+  !*** external ["wp","primitives"] ***!
+  \************************************/
+(module) {
+
+module.exports = window["wp"]["primitives"];
+
+/***/ },
+
+/***/ "./node_modules/@wordpress/icons/build-module/library/pencil.mjs"
+/*!***********************************************************************!*\
+  !*** ./node_modules/@wordpress/icons/build-module/library/pencil.mjs ***!
+  \***********************************************************************/
+(__unused_webpack___webpack_module__, __webpack_exports__, __webpack_require__) {
+
+__webpack_require__.r(__webpack_exports__);
+/* harmony export */ __webpack_require__.d(__webpack_exports__, {
+/* harmony export */   "default": () => (/* binding */ pencil_default)
+/* harmony export */ });
+/* harmony import */ var _wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! @wordpress/primitives */ "@wordpress/primitives");
+/* harmony import */ var react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! react/jsx-runtime */ "react/jsx-runtime");
+// packages/icons/src/library/pencil.tsx
+
+
+var pencil_default = /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__.SVG, { xmlns: "http://www.w3.org/2000/svg", viewBox: "0 0 24 24", fill: "currentColor", children: /* @__PURE__ */ (0,react_jsx_runtime__WEBPACK_IMPORTED_MODULE_1__.jsx)(_wordpress_primitives__WEBPACK_IMPORTED_MODULE_0__.Path, { d: "m19 7-3-3-8.5 8.5-1 4 4-1L19 7Zm-7 11.5H5V20h7v-1.5Z" }) });
+
+//# sourceMappingURL=pencil.mjs.map
+
+
+/***/ },
+
 /***/ "./block.json"
 /*!********************!*\
   !*** ./block.json ***!
   \********************/
 (module) {
 
-module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ud/hero-video-block","version":"1.0.0","title":"Hero Video","category":"ud-blocks","icon":"format-video","description":"Hero-Bereich mit Hintergrundvideo, Posterbild und Overlay-Text.","textdomain":"ud-hero-video-block-ud","supports":{"html":false,"anchor":true,"align":["wide","full"]},"attributes":{"eyebrow":{"type":"string","default":"The 5 Elements"},"headline":{"type":"string","default":"Eine private Villa oberhalb des Vierwaldstättersees"},"videoId":{"type":"number","default":0},"videoUrl":{"type":"string","default":""},"posterId":{"type":"number","default":0},"posterUrl":{"type":"string","default":""},"showVideoOnMobile":{"type":"boolean","default":true},"loop":{"type":"boolean","default":true}},"editorScript":"file:./build/editor-script.js","editorStyle":"file:./build/editor-style.css","script":"file:./build/frontend-script.js","style":"file:./build/frontend-style.css"}');
+module.exports = /*#__PURE__*/JSON.parse('{"$schema":"https://schemas.wp.org/trunk/block.json","apiVersion":3,"name":"ud/hero-video-block","version":"1.0.0","title":"Hero mit Video","category":"ud-blocks","icon":"format-video","description":"Inhalte mit Hintergrundvideo, Posterbild und Text als responsiven Hero-Bereich präsentieren.","textdomain":"ud-hero-video-block-ud","supports":{"html":false,"anchor":true,"align":["wide","full"]},"attributes":{"eyebrow":{"type":"string","default":"Wohnen am Vierwaldstättersee"},"headline":{"type":"string","default":"Architektur, die Landschaft und Rückzug verbindet"},"videoId":{"type":"number","default":0},"videoUrl":{"type":"string","default":""},"posterId":{"type":"number","default":0},"posterUrl":{"type":"string","default":""},"showVideoOnMobile":{"type":"boolean","default":true},"loop":{"type":"boolean","default":true}},"editorScript":"file:./build/editor-script.js","editorStyle":"file:./build/editor-style.css","script":"file:./build/frontend-script.js","style":"file:./build/frontend-style.css"}');
 
 /***/ }
 
